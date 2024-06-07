@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card">
+                                            <div class="card-header">
+
+                                                <div class="card-header-right">
+                                                    <ul class="list-unstyled card-option">
+                                                        <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                                        <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                        <li><i class="fa fa-minus minimize-card"></i></li>
+                                                        <li><i class="fa fa-refresh reload-card"></i></li>
+                                                        <li><i class="fa fa-trash close-card"></i></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="card-block table-border-style">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Contact Id</th>
+                                                                <th>Name</th>
+                                                                <th>Email</th>
+                                                                <th>Subject</th>
+                                                                <th>Mobile</th>
+                                                                <th>Message</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for i in data %}
+                                                            <tr>
+                                                                <td>{{i.id}}</td>
+                                                                <td>{{i.Name}}</td>
+                                                                <td>{{i.Email}}</td>
+                                                                <td>{{i.Subject}}</td>
+                                                                <td>{{i.Mobile}}</td>
+                                                                <td>{{i.Message}}</td>
+
+
+                                                                <td>
+
+
+                                                                    <a href="{% url 'delete_contact' contact_id=i.id  %}">
+                                                                        <button type="button" class="btn-outline-primary ">Delete</button>
+                                                                    </a>
+                                                                </td>
+                                                                </tr>
+
+                                                        {% endfor %}
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+</body>
+</html>
+{% endblock %}
